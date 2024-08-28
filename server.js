@@ -8,9 +8,11 @@ const authRouter = require('./routes/auth').router;
 const app = express();
 const PORT = process.env.PORT || 5000; 
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: 'https://gif-search-app-mern.netlify.app', 
+}));
 
+app.use(express.json());
 app.use('/api', favoritesRouter);
 app.use('/auth', authRouter);
 
